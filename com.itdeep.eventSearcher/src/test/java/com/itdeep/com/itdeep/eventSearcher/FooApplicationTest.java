@@ -19,31 +19,31 @@ import org.springframework.boot.test.context.SpringBootTest;
  *
  * @author EXG503
  */
-@RunWith(CamelSpringBootRunner.class)
-@SpringBootTest(classes = Application.class,
-    properties = "greeting = Hello foo")
-@EnableRouteCoverage
-@MockEndpoints("log:foo") // mock the log:foo endpoint => mock:log:foo which we then use in the testing
-@Ignore // enable me to run this test as well so we can cover testing the route completely
+//@RunWith(CamelSpringBootRunner.class)
+//@SpringBootTest(classes = Application.class,
+//    properties = "greeting = Hello foo")
+//@EnableRouteCoverage
+//@MockEndpoints("log:foo") // mock the log:foo endpoint => mock:log:foo which we then use in the testing
+//@Ignore // enable me to run this test as well so we can cover testing the route completely
 public class FooApplicationTest {
 
-    @Autowired
-    private CamelContext camelContext;
-
-    @EndpointInject(uri = "mock:log:foo")
-    private MockEndpoint mock;
-
-    @Test
-    public void shouldSayFoo() throws Exception {
-        mock.expectedBodiesReceived("Hello foo");
-
-        // we expect that one or more messages is automatic done by the Camel
-        // route as it uses a timer to trigger
-        NotifyBuilder notify = new NotifyBuilder(camelContext).whenDone(1).create();
-
-        assertTrue(notify.matches(10, TimeUnit.SECONDS));
-
-        mock.assertIsSatisfied();
-    }
+//    @Autowired
+//    private CamelContext camelContext;
+//
+//    @EndpointInject(uri = "mock:log:foo")
+//    private MockEndpoint mock;
+//
+//    @Test
+//    public void shouldSayFoo() throws Exception {
+//        mock.expectedBodiesReceived("Hello foo");
+//
+//        // we expect that one or more messages is automatic done by the Camel
+//        // route as it uses a timer to trigger
+//        NotifyBuilder notify = new NotifyBuilder(camelContext).whenDone(1).create();
+//
+//        assertTrue(notify.matches(10, TimeUnit.SECONDS));
+//
+//        mock.assertIsSatisfied();
+//    }
 
 }
